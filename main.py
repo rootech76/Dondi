@@ -1,5 +1,6 @@
 from art import *
 import os
+import pandas as pd
 
 
 
@@ -14,6 +15,25 @@ text = "Dondi"
 tprint(text)
 
 
+
+#Verificar si existe el archivo csv
+#Si no existe sera á creado el archivo con las columnas fecha, proveedor y monto 
+
+filename = "registros.csv"
+file_exists = os.path.isfile(filename)
+
+if not file_exists:
+
+    df = pd.DataFrame(columns=['fecha', 'proveedor', 'monto'])
+    df.to_csv(filename, index=False)
+
+
+
+
+
+
+
+    
 def menu():
     print("1) Ingresar registro")
     print("2) Visualizar deuda")
